@@ -1,0 +1,24 @@
+<div class="container animation-test">
+    <table class="striped">
+        <thead>
+          <tr>
+              <th>id</th>
+              <th>id_ficha</th>
+              <th>cod_personal</th>
+              <th>cantidad personal</th>
+              <th>categoria</th>
+              <th>presupuesto</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of data">
+                <td>{{ item.id }}</td>
+                <td>{{ item.id_ficha }}</td>
+                <td>{{ item.cod_personal }}</td>
+                <td>{{ item.cantidad_personal }}</td>
+                <td>{{ item.categoria }}</td>
+                <td>{{ item.presupuesto }}</td>
+            </tr>
+        </tbody>
+      </table>
+</div>

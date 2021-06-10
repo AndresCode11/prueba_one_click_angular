@@ -1,0 +1,51 @@
+<div class="container animation-test">
+  <section>
+    <div class="row">
+      <div class="col s8"></div>
+      <div class="input-field col s3">
+        <form [formGroup]="searchForm">
+          <input formControlName="text" placeholder="Consecutivo" id="first_name" type="text">
+        </form>
+      </div>
+      <div class="col s1">
+          <button *ngIf="!is_search" (click)="search()" class="search-btn">Buscar</button>
+          <button *ngIf="is_search" (click)="search()" class="search-btn">x</button>
+      </div>
+    </div>
+    <table class="striped">
+      <thead>
+        <tr>
+            <th>detalles</th>
+            <th>id</th>
+            <th>nit</th>
+            <th>nombre</th>
+            <th>consecutivo</th>
+            <th>estado</th>
+        </tr>
+      </thead>
+  
+      <tbody *ngIf="!is_search">
+        <tr *ngFor="let item of userList">
+          <td><button (click)="redirect(item.id)">ver</button></td>
+          <td>{{ item.id }}</td>
+          <td>{{ item.nit }}</td>
+          <td>{{ item.nombre }}</td>
+          <td>{{ item.consecutivo }}</td>
+          <td>{{ item.estado }}</td>
+        </tr>
+      </tbody>
+
+      <tbody *ngIf="is_search">
+        <tr *ngFor="let item of userListSeach">
+          <td><button (click)="redirect(item.id)">detalles</button></td>
+          <td>{{ item.id }}</td>
+          <td>{{ item.nit }}</td>
+          <td>{{ item.nombre }}</td>
+          <td>{{ item.consecutivo }}</td>
+          <td>{{ item.estado }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>
+            

@@ -1,0 +1,28 @@
+<div class="container animation-test">
+   
+  <div>
+    <p style="text-align: center;">Consulta PL/SQL</p>
+  </div>  
+  <section style="display: flex; justify-content: center;">
+    <pre class="pre-format"> 
+        CREATE OR REPLACE PACKAGE DETALLEFICHA AS
+            FUNCTION GETDETALLE(detailid in VARCHAR2) RETURN REF_CURSOR AS RESULT_SET REF_CURSOR;
+                IS rowdetailid := str2tbl(detailid)
+            BEGIN
+                OPEN RESULT_SET FOR
+
+                SELECT CPR_FICHA.id, CPR_FICHA.nit, CPR_FICHA.nombre, CPR_FICHA.consecutivo
+                CPR_FICHA.estado, CPR_DETALLE_FICHA.id, CPR_DETALLE_FICHA.cod_personal    
+                CPR_DETALLE_FICHA.cantidad_personal, CPR_DETALLE_FICHA.categoria, CPR_DETALLE_FICHA.presuspuesto 
+                
+                FROM CPR_FICHA 
+                JOIN CPR_DETALLE_FICHA
+                ON CPR_FICHA.id = CPR_DETALLE_FICHA.id_ficha;
+                WHERE  = CPR_FICHA.consecutivo = rowdetailid;
+
+                RETURN RESULT_SET;
+            END GETDETALLE;           
+        END DETALLEFICHA;
+    </pre>
+  </section>
+</div>
