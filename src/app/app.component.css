@@ -25,6 +25,14 @@
             animation: fadein 1.5s;
 }
 
+.title-name{
+    font-size: 16px;
+}
+
+.links {
+    color: black;
+}
+
 @keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }
